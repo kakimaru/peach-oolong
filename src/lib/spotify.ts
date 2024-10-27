@@ -20,8 +20,8 @@ class SpotifyClient {
   static async initialize() {
     const res = await axios.post(`https://accounts.spotify.com/api/token`,
       {grant_type: 'client_credentials',
-        client_id: import.meta.env.PUBLIC_CLIENT_ID,
-        client_secret: import.meta.env.PUBLIC_CLIENT_SECRET
+        client_id: import.meta.env.CLIENT_ID,
+        client_secret: import.meta.env.CLIENT_SECRET
       },
       {headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
