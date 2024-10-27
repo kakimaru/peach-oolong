@@ -14,10 +14,6 @@ interface Item {
   images: Image[];
 }
 
-interface Episode extends Item {
-  imageUrl: string;
-}
-
 class SpotifyClient {
   token: string | null = null;
 
