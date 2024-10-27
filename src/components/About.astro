@@ -1,14 +1,13 @@
 <section>
     <div class='animation'>
-      <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
-  
+      <script is:inline src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
       <dotlottie-player src="https://lottie.host/46006c92-4ecd-434f-8695-31f32736d7da/ncZ0Lk4Tc5.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
     </div>
   <div class="wrap">
     <img class="about-image" src="./about.svg" alt="about">
     <div class="about-info">
-      <h1>ピーチウーロンの<br>○○な気がする</h1>
-      <p>アイドルと映画好きのピーチウーロンが、<br>雑談をメインにゆるっとお届けするポッドキャスト。<br><br>将来の夢はオールナイトニッポン出演！<br><br>日常のあれこれや趣味について、<br>気ままに語るポッドキャストです。</p>
+      <h1 class="about-title">ピーチウーロンの<br>○○な気がする</h1>
+      <p class="about-text">アイドルと映画好きのピーチウーロンが、<br>雑談をメインにゆるっとお届けするポッドキャスト。<br><br>将来の夢はオールナイトニッポン出演！<br><br>日常のあれこれや趣味について、<br>気ままに語るポッドキャストです。</p>
     </div>
     <iframe style="border-radius:12px; border: none;" src="https://open.spotify.com/embed/show/66f9D0KcRpmJp1kG9lpB13?utm_source=generator" width="100%" height="352" allow="fullscreen; autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
   </div>
@@ -49,9 +48,6 @@
     margin: 0;
     font-weight: bold;
     text-align: center;
-    animation: Fade-In linear;
-    animation-timeline: view();
-    animation-range: entry;
   }
 
   p {
@@ -60,23 +56,53 @@
     margin: 0;
     text-align: center;
     margin-bottom: 32px;
-    animation: Fade-In linear;
-    animation-timeline: view();
-    animation-range: entry;
-
   }
-
-  @keyframes Fade-In {
-    0% {
-      opacity: 0;
-      transform: translateX(30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  
-
 </style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger) 
+
+  const h1 = document.querySelector('.about-title');
+  const p = document.querySelector('.about-text');
+  
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: h1,
+      toggleActions: "play none none reverse",
+      start: "top 80%",
+      markers: true,
+    },
+  })
+
+
+  tl.fromTo(
+    h1,
+    {
+      y: 50,
+      autoAlpha: 0,
+    },
+    {
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.6,
+      ease: "power4.out",
+    }
+  ).fromTo(
+    p,
+    {
+      y: 50,
+      autoAlpha: 0,
+    },
+    {
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.6,
+      ease: "power4.out",
+    },
+    "-=0.2"
+  );
+
+
+</script>
