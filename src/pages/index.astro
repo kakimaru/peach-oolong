@@ -1,0 +1,139 @@
+---
+import { Image } from 'astro:assets';
+
+import Layout from '../layouts/Layout.astro';
+import Line from '../components/Line.astro';
+import About from '../components/About.astro';
+import Episodes from '../components/Episodes.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+
+import mainImage from '../../public/main.webp'
+import '@fontsource/oranienbaum'
+
+---
+
+<Layout title="ピーチウーロンの〇〇な気がする">
+	<main class="bg">
+    <section class="pc">
+      <div class="text"></div>
+    </section>
+    <section class="sp">
+      <Image class="main-image" src={mainImage} alt="ピーチウーロンの〇〇な気がする" />
+      <Line />
+      <About />
+      <Episodes />
+      <Line />
+      <Contact />
+      <Footer />
+    </section>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+    overflow: hidden;
+    
+	}
+
+  .pc {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    display: grid;
+    place-items: center;
+  }
+
+  .text {
+    font-size: 120px;
+    color: white;
+    font-family: 'Oranienbaum', selif;
+  }
+
+  .sp {
+    max-width: 460px;
+    width: 100%;
+    position: relative;
+    left: 0;
+    margin: 0 auto;
+  }
+
+  @media screen and (min-width: 1080px) {
+    .sp {
+    margin: 0 auto;
+    }
+  }
+
+
+  .main-image {
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    object-fit: contain;
+    margin: 0 auto;
+    height: auto;
+  }
+  
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.instructions {
+		margin-bottom: 2rem;
+		border: 1px solid rgba(var(--accent-light), 25%);
+		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
+		padding: 1.5rem;
+		border-radius: 8px;
+	}
+	.instructions code {
+		font-size: 0.8em;
+		font-weight: bold;
+		background: rgba(var(--accent-light), 12%);
+		color: rgb(var(--accent-light));
+		border-radius: 4px;
+		padding: 0.3em 0.4em;
+	}
+	.instructions strong {
+		color: rgb(var(--accent-light));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 2rem;
+		padding: 0;
+	}
+
+  @keyframes ani {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 200%; }
+  }
+</style>
+
+<script>
+  import { TextScramble } from '../lib/animation';
+
+  const phrases = [
+    "Peach oolong's Podcast,",
+  ]
+
+  const el = document.querySelector('.text')
+  const fx = new TextScramble(el)
+
+  let counter = 0
+  const next = () => {
+    fx.setText(phrases[counter]).then(() => {
+      setTimeout(next, 800)
+    })
+    counter = (counter + 1) % phrases.length
+  }
+
+  next()
+
+</script>

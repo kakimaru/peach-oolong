@@ -1,0 +1,68 @@
+---
+import '@fontsource/oranienbaum'
+const lineContents: string[] = ['🍑', 'Podcast', '🍑', 'Movies', '🍑', 'Make up', '🍑', 'idol', '🍑', 'Cooking', '🍑', 'Podcast', '🍑', 'Movies', '🍑', 'Make up', '🍑', 'idol', '🍑', 'Cooking']
+---
+
+<section 
+  class="line" 
+  x-data="{}" 
+  x-init="$nextTick(() => {
+  let ul = $refs.items;
+  let clone = ul.cloneNode(true);
+  ul.insertAdjacentElement('afterend', clone);
+  clone.setAttribute('aria-hidden', 'true');
+  })"
+  >
+  <ul class="line-inner" x-ref="items">
+    {lineContents.map((item, index) => (
+      <li class="line-item">
+        {item}
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .line {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    background-color: #fff;
+    padding: 8px;
+    overflow: hidden;
+    width: 100%;
+    /* mask-image: linear-gradient(to right, 
+    transparent 0, 
+    white 128px, 
+    white calc(100% - 128px), 
+    transparent 100%
+    ); */
+    border-top: double 2px #748AF3;
+    border-bottom: double 2px #748AF3;
+  }
+  .line-inner {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    animation: infinite-scroll 25s linear infinite;
+    gap: 24px;
+    margin: 0;
+    padding: 0px 8px;
+  }
+  .line-item {
+    color: #FF98AD;
+    font-family: 'Oranienbaum', selif;
+    list-style: none;
+    margin: 0;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  @keyframes infinite-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+</style>

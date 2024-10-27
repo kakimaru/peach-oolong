@@ -1,0 +1,49 @@
+---
+import "the-new-css-reset/css/reset.css";
+// Supports weights 100-900
+import '@fontsource-variable/inter';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+    <script is:inline src="//unpkg.com/alpinejs" defer></script>
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	:root {
+		--accent: 229,231,255;
+		--accent-light: 255,231,236;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 40%,
+			white 50%
+		);
+	}
+
+	html {
+		font-family: system-ui, sans-serif;
+		background: #DDD6FF;
+	}
+
+  body {
+    font-family: 'Inter Variable', sans-serif;
+  }
+
+</style>

@@ -1,0 +1,86 @@
+---
+import EpisodeCard from "./EpisodeCard.astro";
+
+---
+
+<section>
+  <div class="episode">
+    <img class="episodes-image" src="./episode.svg" alt="Episodes">
+    <h2>過去回を聴く</h2>
+    <p></p>
+    <div class="episodes-wrap">
+      <EpisodeCard />
+    </div>
+    <a href="https://open.spotify.com/show/66f9D0KcRpmJp1kG9lpB13" target="_blank", rel="noopener noreferrer" class="button">
+      <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon">
+        <path d="M4.79661 1.12126C5.03823 0.468301 5.96177 0.468301 6.20339 1.12126L6.86155 2.89993C6.98816 3.24208 7.25792 3.51184 7.60007 3.63845L9.37874 4.29661C10.0317 4.53823 10.0317 5.46177 9.37874 5.70339L7.60007 6.36155C7.25792 6.48816 6.98816 6.75792 6.86155 7.10007L6.20339 8.87874C5.96177 9.5317 5.03823 9.5317 4.79661 8.87874L4.13845 7.10007C4.01184 6.75792 3.74208 6.48816 3.39993 6.36155L1.62126 5.70339C0.968301 5.46177 0.968301 4.53823 1.62126 4.29661L3.39993 3.63845C3.74208 3.51184 4.01184 3.24208 4.13845 2.89993L4.79661 1.12126Z" fill="#E4E6FF" stroke="#474C62" stroke-width="0.5"/>
+      </svg>
+      Spotifyで聴く
+      <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon">
+        <path d="M4.79661 1.12126C5.03823 0.468301 5.96177 0.468301 6.20339 1.12126L6.86155 2.89993C6.98816 3.24208 7.25792 3.51184 7.60007 3.63845L9.37874 4.29661C10.0317 4.53823 10.0317 5.46177 9.37874 5.70339L7.60007 6.36155C7.25792 6.48816 6.98816 6.75792 6.86155 7.10007L6.20339 8.87874C5.96177 9.5317 5.03823 9.5317 4.79661 8.87874L4.13845 7.10007C4.01184 6.75792 3.74208 6.48816 3.39993 6.36155L1.62126 5.70339C0.968301 5.46177 0.968301 4.53823 1.62126 4.29661L3.39993 3.63845C3.74208 3.51184 4.01184 3.24208 4.13845 2.89993L4.79661 1.12126Z" fill="#FFDEE5" stroke="#474C62" stroke-width="0.5"/>
+      </svg>
+    </a>
+  </div>
+</section>
+
+<style>
+  section {
+    background-color: #fff;
+    color: #474C62;
+    border-radius: 56px 56px 0 0;
+    margin-top: -48px;
+  }
+
+  .episode {
+    padding: 40px 24px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .episodes-image {
+    max-width: 50%;
+  }
+
+  .episodes-wrap {
+    display: grid;
+    gap: 16px;
+  }
+
+  .button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 24px;
+    border-radius: 80px;
+    transition: all 0.3s linear;
+    border: 1px solid #fff;
+  }
+
+  .button:hover {
+    background-color: #FFF6F8;
+    box-shadow: inset 0 2px 2px 0 rgba(255, 255, 255, 0.7);
+    border: 1px solid #FFF1F4;
+  }
+
+  .icon {
+    width: 16px;
+    height: 16px;
+    animation: loader 2s infinite;
+  }
+
+  @keyframes loader {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 180deg;
+  }
+}
+</style>
