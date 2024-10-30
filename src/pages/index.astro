@@ -8,19 +8,18 @@ import Episodes from '../components/Episodes.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 
-import mainImage from '../../public/main.webp';
+import mainImage from '../images/main.png';
 import '@fontsource/oranienbaum';
 import '@fontsource-variable/lexend';
-
 ---
 
 <Layout title="ピーチウーロンの〇〇な気がする">
 	<main class="bg">
-    <section class="pc">
+    <section class="pc" aria-hidden="true">
       <div class="text"></div>
     </section>
     <section class="sp">
-      <Image class="main-image" src={mainImage} alt="ピーチウーロンの〇〇な気がする" />
+      <Image class="main-image" src={mainImage} alt="ピーチウーロンの〇〇な気がする" loading="eager" />
       <Line />
       <About />
       <Episodes />

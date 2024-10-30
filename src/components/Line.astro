@@ -12,6 +12,7 @@ const lineContents: string[] = ['🍑', 'Podcast', '🍑', 'Movies', '🍑', 'Ma
   ul.insertAdjacentElement('afterend', clone);
   clone.setAttribute('aria-hidden', 'true');
   })"
+  aria-hidden="true"
   >
   <ul class="line-inner" x-ref="items">
     {lineContents.map((item) => (
@@ -30,12 +31,6 @@ const lineContents: string[] = ['🍑', 'Podcast', '🍑', 'Movies', '🍑', 'Ma
     padding: 8px;
     overflow: hidden;
     width: 100%;
-    /* mask-image: linear-gradient(to right, 
-    transparent 0, 
-    white 128px, 
-    white calc(100% - 128px), 
-    transparent 100%
-    ); */
     border-top: double 2px #748AF3;
     border-bottom: double 2px #748AF3;
   }

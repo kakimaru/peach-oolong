@@ -1,11 +1,13 @@
 ---
 import EpisodeCard from "./EpisodeCard.astro";
+import { Image } from 'astro:assets';
+import episodeImage from '../images/episode.svg';
 
 ---
 
 <section class="episode-section">
   <div class="episode">
-    <img class="episodes-image" src="./episode.svg" alt="Episodes">
+    <Image src={episodeImage} alt="Episodes" class="episodes-image" />
     <h2>過去回を聴く</h2>
     <p>各回をちょこっと視聴できます。<br>もっと聴きたい場合はSpotifyでお楽しみください！</p>
     <div class="episodes-wrap">

@@ -1,10 +1,10 @@
+---
+import { Image } from 'astro:assets';
+import aboutImage from '../images/about.svg';
+---
 <section>
-    <div class='animation'>
-      <script is:inline src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
-      <dotlottie-player src="https://lottie.host/46006c92-4ecd-434f-8695-31f32736d7da/ncZ0Lk4Tc5.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
-    </div>
   <div class="wrap">
-    <img class="about-image" src="./about.svg" alt="about">
+    <Image src={aboutImage} alt="About" />
     <div class="about-info">
       <h1 class="about-title">ピーチウーロンの<br>○○な気がする</h1>
       <p class="about-text">アイドルと映画好きのピーチウーロンが、<br>雑談をメインにゆるっとお届けするポッドキャスト。<br><br>将来の夢はオールナイトニッポン出演！<br><br>日常のあれこれや趣味について、<br>気ままに語るポッドキャストです。</p>
