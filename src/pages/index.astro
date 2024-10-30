@@ -8,7 +8,6 @@ import Episodes from '../components/Episodes.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 
-import mainImage from '../images/main.png';
 import '@fontsource/oranienbaum';
 import '@fontsource-variable/lexend';
 ---
@@ -19,7 +18,7 @@ import '@fontsource-variable/lexend';
       <div class="text"></div>
     </section>
     <section class="sp">
-      <Image class="main-image" src={mainImage} alt="ピーチウーロンの〇〇な気がする" loading="eager" />
+      <img class="main-image" src="/main.webp" alt="ピーチウーロンの〇〇な気がする">
       <Line />
       <About />
       <Episodes />
