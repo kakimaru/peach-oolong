@@ -6,8 +6,10 @@ import '@fontsource-variable/inter';
 interface Props {
 	title: string;
 }
-
 const { title } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, 'https://peach-oolong.vercel.app/');
+const ogpImageURL = new URL('/ogp.png', canonicalURL);
+
 ---
 
 <!doctype html>
@@ -17,6 +19,7 @@ const { title } = Astro.props;
 		<meta name="description" content="アイドルと映画好きのピーチウーロンが、雑談をメインにゆるっとお届けするポッドキャスト。将来の夢はオールナイトニッポン出演！日常のあれこれや趣味について気ままに語るポッドキャストです。" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:image" content={ogpImageURL} />
 		<meta name="generator" content={Astro.generator} />
     <script is:inline src="//unpkg.com/alpinejs" defer></script>
 		<title>{title}</title>
