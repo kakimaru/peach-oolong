@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import aboutImage from '../images/about.svg';
+import Buttons from './Buttons.astro';
 ---
 <section>
   <div class="wrap">
@@ -9,13 +10,14 @@ import aboutImage from '../images/about.svg';
       <h1 class="about-title">ピーチウーロンの<br>○○な気がする</h1>
       <p class="about-text">アイドルと映画好きのピーチウーロンが、<br>雑談をメインにゆるっとお届けするポッドキャスト。<br><br>将来の夢はオールナイトニッポン出演！<br><br>日常のあれこれや趣味について、<br>気ままに語るポッドキャストです。</p>
     </div>
+    <Buttons />
     <iframe style="border-radius:12px; border: none;" src="https://open.spotify.com/embed/show/66f9D0KcRpmJp1kG9lpB13?utm_source=generator" width="100%" height="352" allow="fullscreen; autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
   </div>
 </section>
 
 <style>
   section {
-    background: linear-gradient(0deg, rgba(229,231,255,1) 0%, rgba(255,231,236,1) 50%, rgba(255,255,255,1) 100%);
+    background: linear-gradient(0deg, rgba(229,231,255,1) 0%, rgb(255, 239, 243) 80%, rgba(255,255,255,1) 100%);
     color: #474C62;
   }
 
