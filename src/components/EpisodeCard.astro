@@ -2,28 +2,35 @@
 import { Image } from "astro:assets";
 import spotify from "../lib/spotify"
 
-interface Episode {
+interface EpisodeById {
+  id: string;
   name: string;
-  release_date: string;
-  uri: string;
+  releaseDate: string;
   imageUrl: string;
-  audioPreview: string;
+  audioPreviewUrl: string;
 }
 
-const episodes: Episode[] = await spotify.getEpisodes()
+const episodeIds = [
+  "3I2hPKvbxJvfeugdQzhfmp",
+  "2W4ZZAXs3EHas45utQMGhW",
+  "0Ji8jaZmDKaHeFgIHtjjDV",
+];
+
+const episodesById: EpisodeById[] = await Promise.all(episodeIds.map(async(id) => await spotify.getEpisodeById(id)))
+
 ---
 
-{episodes.map((episode) => (
-  <div class="card">
+{episodesById.map((episode) => (
+  <a href={`https://open.spotify.com/episode/${episode.id}`} class="card" target="_blank" rel="noopener noreferrer">
     <Image class="card-image" src={episode.imageUrl} alt={episode.name} inferSize={true}/>
     <div class="card-info">
       <div class="card-text">
         <h3 class="title">{episode.name}</h3>
-        <p class="date">{episode.release_date}</p>
+        <p class="date">{episode.releaseDate}</p>
       </div>
-      <audio class="audio" controls src={episode.audioPreview}></audio>
+      <audio class="audio" controls src={episode.audioPreviewUrl}></audio>
     </div>
-  </div>
+  </a>
 ))}
 
 <style>
