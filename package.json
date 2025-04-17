@@ -16,7 +16,7 @@
     "@fontsource-variable/lexend": "^5.1.1",
     "@fontsource/oranienbaum": "^5.1.0",
     "astro": "^5.7.2",
-    "axios": "^1.7.7",
+    "axios": "^1.8.4",
     "gsap": "^3.12.5",
     "the-new-css-reset": "^1.11.3",
     "typescript": "^5.6.2"
